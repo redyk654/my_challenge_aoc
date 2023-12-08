@@ -5,6 +5,8 @@ export function determinerCategorieMainCarte(uneMain: MainCarte): void  {
     
         const groupes: Groupe[] = determinerGroupe(uneMain.cartes);
         TrierGroupeParNombreElements(groupes);
+        // console.log('groupes', groupes);
+        
     
         if (groupes.length === 1) {
             uneMain.categorie = CATEGORIES.cinq;
@@ -107,6 +109,8 @@ function permute(mainCartes: MainCarte[], i: number, j: number): void  {
     const temp = mainCartes[i];
     mainCartes[i] = mainCartes[j];
     mainCartes[j] = temp;
+    mainCartes[i].rang = i + 1;
+    mainCartes[j].rang = j + 1;
 }
 
 function TrierGroupeParNombreElements(groupe: Groupe[]): void  {
@@ -115,7 +119,9 @@ function TrierGroupeParNombreElements(groupe: Groupe[]): void  {
 
 function determinerGroupe(cartes: string): Groupe[] {
     const tableau = cartes.split('').toSorted();
-    if (tableau.length === 5) {
+    // console.log('tableau', tableau);
+    
+    if (tableau.length === 0) {
         return [
             {
                 titre: '',
