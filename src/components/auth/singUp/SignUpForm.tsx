@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Box, Button, FormControl, Grid, TextField, Typography } from '@mui/material';
 import { centerClasses } from '@/shared/global/variables';
+import SignUpButton from './SignUpButton';
 
 const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -33,7 +34,7 @@ export default function SignUpForm(): JSX.Element {
         sx={{
             '& > :not(style)': { m: 1, width: '25ch' },
         }}
-        noValidate
+        // noValidate
         autoComplete="off"
         className={`mt-5 d-flex flex-column`}
         onSubmit={handleSubmit(singUpUser)}
@@ -48,7 +49,7 @@ export default function SignUpForm(): JSX.Element {
                         type='email'
                         id="email"
                         label="Email"
-                        sx={{width: '25vw'}}
+                        sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
             )}
@@ -63,7 +64,7 @@ export default function SignUpForm(): JSX.Element {
                         type='text'
                         id="pseudo"
                         label="Pseudo"
-                        sx={{width: '25vw'}}
+                        sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
             )}
@@ -78,22 +79,13 @@ export default function SignUpForm(): JSX.Element {
                         type='password'
                         id="mdp"
                         label="Mot de passe"
-                        sx={{width: '25vw'}}
+                        sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
             )}
         />
         <Grid className={`w-100 ${centerClasses} mt-4`}>
-            <Button
-                type='submit'
-                variant='contained'
-                // size='small'
-                color='darkBg'
-                sx={{width: '24vw', fontSize: {sm: 'small', xs: '.4rem'}}}
-                className='p-3'
-            >
-                Creer votre compte
-            </Button>
+            <SignUpButton />
         </Grid>
     </Box>
   )
