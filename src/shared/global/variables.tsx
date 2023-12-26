@@ -1,0 +1,1 @@
+export const centerClasses: string = `d-flex align-items-center justify-content-center`;
