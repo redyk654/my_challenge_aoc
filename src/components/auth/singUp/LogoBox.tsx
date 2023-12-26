@@ -10,7 +10,7 @@ export default function LogoBox(): JSX.Element {
         <Grid
             item
             xs={0}
-            sm={5}
+            md={5}
             sx={{bgcolor: `${colorPalette.background}`, color: `${colorPalette.text.light}`, display: {xs: 'none', sm: 'grid'}}}
         >
             <Grid className={`w-100 h-75 ${centerClasses}`}>

@@ -11,11 +11,21 @@ export default function SignUpPage() {
   return (
     <Grid className={`p-1 ${centerClasses}`}>
         <Grid container spacing={0} className='w-75' sx={{height: '85vh'}}>
+            {/* Left box with logo */}
             <LogoBox />
-            <Grid item xs={12} sm={7} className={`${centerClasses}`}>
+            {/* Responsive header (only for mobile) */}
+            <Grid item xs={12} md={0} className="d-flex justify-content-center d-md-none">
+                <Typography className='h1 text-uppercase'>
+                    <Link href='/' className='text-decoration-none text-dark'>logo</Link>
+                </Typography>
+            </Grid>
+            {/* Right box with form */}
+            <Grid item xs={12} md={7} className={`${centerClasses}`}>
                 <Grid className={`${centerClasses} pt-4`}>
                     <Grid className={`w-100`} sx={{color: `#09090ab9`}}>
+                        {/* Title form */}
                         <TitleH2 textContent='inscrivez-vous' />
+                        {/* Form */}
                         <SignUpForm />
                         <Grid className={`w-100 ${centerClasses} mt-4`}>
                             <Typography sx={{fontSize: {xs: '.75rem', sm: '.9rem'}}}>

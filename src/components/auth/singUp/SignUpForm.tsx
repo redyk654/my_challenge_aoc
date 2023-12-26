@@ -49,6 +49,8 @@ export default function SignUpForm(): JSX.Element {
                         type='email'
                         id="email"
                         label="Email"
+                        error={!!errors.email}
+                        helperText={errors.email?.message}
                         sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
