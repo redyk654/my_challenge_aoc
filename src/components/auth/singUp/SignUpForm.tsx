@@ -9,7 +9,7 @@ import SignUpButton from './SignUpButton';
 
 const schema = yup.object().shape({
     email: yup.string().email().required(),
-    pseudo: yup.string().required(),
+    pseudo: yup.string().min(2, 'trop court').required(),
     mdp: yup.string().min(2, 'trop court').max(10, 'trop long').required(),
 }).required();
 
@@ -25,7 +25,7 @@ export default function SignUpForm(): JSX.Element {
     });
 
     const singUpUser = (data: any) => {
-        console.log(data);
+        console.log(errors.email?.message);
     }
 
   return (
@@ -49,8 +49,8 @@ export default function SignUpForm(): JSX.Element {
                         type='email'
                         id="email"
                         label="Email"
-                        error={!!errors.email}
-                        helperText={errors.email?.message}
+                        error={errors.email?.message === undefined ? false : true}
+                        // helperText={errors.email?.message}
                         sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
@@ -66,6 +66,8 @@ export default function SignUpForm(): JSX.Element {
                         type='text'
                         id="pseudo"
                         label="Pseudo"
+                        error={errors.pseudo?.message === undefined ? false : true}
+                        helperText={errors.pseudo?.message}
                         sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
@@ -81,6 +83,8 @@ export default function SignUpForm(): JSX.Element {
                         type='password'
                         id="mdp"
                         label="Mot de passe"
+                        error={errors.mdp?.message == undefined ? false : true}
+                        helperText={errors.mdp?.message}
                         sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
