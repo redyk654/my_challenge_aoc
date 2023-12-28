@@ -1,5 +1,5 @@
-import { Rang } from "../../customTypes/Etiquettes";
-import { CATEGORIES, Groupe, MainCarte } from "../../customTypes/MainCarte";
+import { Rang } from "../customTypes/Etiquettes";
+import { CATEGORIES, Groupe, MainCarte } from "../customTypes/MainCarte";
 
 export function determinerCategorieMainCarte(uneMain: MainCarte): void  {
     

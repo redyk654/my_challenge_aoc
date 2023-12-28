@@ -68,7 +68,7 @@ export const colorPalette = {
     text: {
         primary: '#212121',
         secondary: '#09090A',
-        light: '#ffffffec',
+        light: '#ffffffda',
         disabled: '#bdbdbd',
         hint: '#9e9e9e'
     },

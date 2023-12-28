@@ -6,6 +6,8 @@ import TitleH2 from '@/shared/components/TitleH2';
 import SignUpForm from '@/components/auth/singUp/SignUpForm';
 import Link from 'next/link';
 import SignUpButton from '@/components/auth/singUp/SignUpButton';
+import GotoSignIn from '@/components/auth/singUp/GotoSignIn';
+import ResponsiveLogo from '@/components/auth/singUp/ResponsiveLogo';
 
 export default function SignUpPage() {
   return (
@@ -13,11 +15,9 @@ export default function SignUpPage() {
         <Grid container spacing={0} className='w-75' sx={{height: '85vh'}}>
             {/* Left box with logo */}
             <LogoBox />
-            {/* Responsive header (only for mobile) */}
-            <Grid item xs={12} md={0} className="d-flex justify-content-center d-md-none">
-                <Typography className='h1 text-uppercase'>
-                    <Link href='/' className='text-decoration-none text-dark'>logo</Link>
-                </Typography>
+            <Grid item xs={12} md={0} sx={{display: {sx: 'grid', md: 'none'}}}>
+                {/* Responsive header (only for mobile) */}
+                <ResponsiveLogo />
             </Grid>
             {/* Right box with form */}
             <Grid item xs={12} md={7} className={`${centerClasses}`}>
@@ -28,9 +28,8 @@ export default function SignUpPage() {
                         {/* Form */}
                         <SignUpForm />
                         <Grid className={`w-100 ${centerClasses} mt-4`}>
-                            <Typography sx={{fontSize: {xs: '.75rem', sm: '.9rem'}}}>
-                                Déjà inscrit ? <Link className='text-decoration-none fw-bold' href="/signin">Connectez-vous</Link>
-                            </Typography>
+                            {/* Go to signin page */}
+                            <GotoSignIn />
                         </Grid>
                     </Grid>
                 </Grid>

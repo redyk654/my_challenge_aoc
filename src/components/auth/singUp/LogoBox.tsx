@@ -11,7 +11,7 @@ export default function LogoBox(): JSX.Element {
             item
             xs={0}
             md={5}
-            sx={{bgcolor: `${colorPalette.background}`, color: `${colorPalette.text.light}`, display: {xs: 'none', sm: 'grid'}}}
+            sx={{bgcolor: `${colorPalette.background}`, color: `${colorPalette.text.light}`, display: {xs: 'none', md: 'grid'}}}
         >
             <Grid className={`w-100 h-75 ${centerClasses}`}>
                 <Typography className='h1 text-uppercase'>logo</Typography>
