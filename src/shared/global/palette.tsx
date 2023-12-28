@@ -66,8 +66,8 @@ export const colorPalette = {
         contrastText: 'rgba(0, 0, 0, 0.87)'
     },
     text: {
-        primary: '#212121',
-        secondary: '#09090A',
+        secondary: '#09090ace',
+        primary: '#09090ab9',
         light: '#ffffffda',
         disabled: '#bdbdbd',
         hint: '#9e9e9e'

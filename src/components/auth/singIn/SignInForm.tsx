@@ -9,22 +9,20 @@ import AuthButton from '@/shared/components/AuthButton';
 
 const schema = yup.object().shape({
     email: yup.string().email().required(),
-    pseudo: yup.string().min(2, 'trop court').required(),
-    mdp: yup.string().min(2, 'trop court').max(10, 'trop long').required(),
+    mdp: yup.string().required(),
 }).required();
 
-export default function SignUpForm(): JSX.Element {
+export default function SignInForm(): JSX.Element {
 
     const { handleSubmit, control, reset, formState: { errors } } = useForm({
         defaultValues: {
             email: '',
-            pseudo: '',
             mdp: '',
         },
         resolver: yupResolver(schema)
     });
 
-    const singUpUser = (data: any) => {
+    const singInUser = (data: any) => {
         console.log(errors.email?.message);
     }
 
@@ -37,7 +35,7 @@ export default function SignUpForm(): JSX.Element {
         // noValidate
         autoComplete="off"
         className={`mt-5 d-flex flex-column`}
-        onSubmit={handleSubmit(singUpUser)}
+        onSubmit={handleSubmit(singInUser)}
     >
         <Controller
             name="email"
@@ -50,24 +48,6 @@ export default function SignUpForm(): JSX.Element {
                         id="email"
                         label="Email"
                         error={errors.email?.message === undefined ? false : true}
-                        // helperText={errors.email?.message}
-                        sx={{width: {xs: '110%'}}}
-                    />
-                </FormControl>
-            )}
-        />
-        <Controller
-            name="pseudo"
-            control={control}
-            render={({ field }) => (
-                <FormControl variant='standard' className={`w-100 ${centerClasses}`}>
-                    <TextField
-                        {...field}
-                        type='text'
-                        id="pseudo"
-                        label="Pseudo"
-                        error={errors.pseudo?.message === undefined ? false : true}
-                        helperText={errors.pseudo?.message}
                         sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
@@ -83,15 +63,13 @@ export default function SignUpForm(): JSX.Element {
                         type='password'
                         id="mdp"
                         label="Mot de passe"
-                        error={errors.mdp?.message == undefined ? false : true}
-                        helperText={errors.mdp?.message}
                         sx={{width: {xs: '110%'}}}
                     />
                 </FormControl>
             )}
         />
         <Grid className={`w-100 ${centerClasses} mt-4`}>
-            <AuthButton title="Creer votre compte" />
+            <AuthButton title='je me connecte' />
         </Grid>
     </Box>
   )
